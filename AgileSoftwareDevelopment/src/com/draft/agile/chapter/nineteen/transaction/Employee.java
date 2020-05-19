@@ -1,0 +1,78 @@
+package com.draft.agile.chapter.nineteen.transaction;
+
+import com.draft.agile.chapter.nineteen.schedule.Schedule;
+import com.draft.agile.chapter.nineteen.classification.Classification;
+import com.draft.agile.chapter.nineteen.pay.PaymentMethod;
+
+/**
+ * 〈一句话功能简述〉
+ * 〈功能详细描述〉
+ *
+ * @author drafthj
+ * @date 2020/5/6
+ * @see [相关类/方法]（可选）
+ * @since [产品/模块版本] （可选）
+ */
+public class Employee {
+    private int empId;
+    private String name;
+    private String address;
+
+    private Schedule schedule;
+    private Classification classification;
+    private PaymentMethod method;
+
+    public Employee(int empId, String name, String address) {
+        this.empId = empId;
+        this.name = name;
+        this.address = address;
+    }
+
+    public int getEmpId() {
+        return empId;
+    }
+
+    public void setEmpId(int empId) {
+        this.empId = empId;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public Schedule getSchedule() {
+        return schedule;
+    }
+
+    public void setSchedule(Schedule schedule) {
+        this.schedule = schedule;
+    }
+
+    public Classification getClassification() {
+        return classification;
+    }
+
+    public void setClassification(Classification classification) {
+        this.classification = classification;
+    }
+
+    public PaymentMethod getMethod() {
+        return method;
+    }
+
+    public void setMethod(PaymentMethod method) {
+        this.method = method;
+    }
+}
