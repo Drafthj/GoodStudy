@@ -1,7 +1,7 @@
 package com.draft.agile.chapter.nineteen.transaction;
 
 import com.draft.agile.chapter.nineteen.schedule.Schedule;
-import com.draft.agile.chapter.nineteen.classification.Classification;
+import com.draft.agile.chapter.nineteen.classification.PaymentClassification;
 import com.draft.agile.chapter.nineteen.pay.PaymentMethod;
 
 /**
@@ -19,7 +19,7 @@ public class Employee {
     private String address;
 
     private Schedule schedule;
-    private Classification classification;
+    private PaymentClassification classification;
     private PaymentMethod method;
 
     public Employee(int empId, String name, String address) {
@@ -60,11 +60,11 @@ public class Employee {
         this.schedule = schedule;
     }
 
-    public Classification getClassification() {
+    public PaymentClassification getClassification() {
         return classification;
     }
 
-    public void setClassification(Classification classification) {
+    public void setClassification(PaymentClassification classification) {
         this.classification = classification;
     }
 

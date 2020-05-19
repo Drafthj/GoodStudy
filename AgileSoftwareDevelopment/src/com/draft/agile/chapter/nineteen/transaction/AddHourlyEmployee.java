@@ -1,7 +1,7 @@
 package com.draft.agile.chapter.nineteen.transaction;
 
 import com.draft.agile.chapter.nineteen.schedule.Schedule;
-import com.draft.agile.chapter.nineteen.classification.Classification;
+import com.draft.agile.chapter.nineteen.classification.PaymentClassification;
 import com.draft.agile.chapter.nineteen.classification.HourlyClassification;
 import com.draft.agile.chapter.nineteen.schedule.WeeklySchedule;
 
@@ -23,7 +23,7 @@ public class AddHourlyEmployee extends AddEmployeeTransaction{
     }
 
     @Override
-    protected Classification getClassification() {
+    protected PaymentClassification getClassification() {
         return new HourlyClassification(hourlyRate);
     }
 

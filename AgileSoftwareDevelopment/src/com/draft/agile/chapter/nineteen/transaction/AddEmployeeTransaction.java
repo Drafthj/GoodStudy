@@ -2,7 +2,7 @@ package com.draft.agile.chapter.nineteen.transaction;
 
 import com.draft.agile.chapter.nineteen.PayrollDatabase;
 import com.draft.agile.chapter.nineteen.schedule.Schedule;
-import com.draft.agile.chapter.nineteen.classification.Classification;
+import com.draft.agile.chapter.nineteen.classification.PaymentClassification;
 import com.draft.agile.chapter.nineteen.pay.HoldMethod;
 
 /**
@@ -34,6 +34,6 @@ public abstract class AddEmployeeTransaction implements Transaction {
         PayrollDatabase.addEmployee(empId, employee);
     }
 
-    protected abstract Classification getClassification();
+    protected abstract PaymentClassification getClassification();
     protected abstract Schedule getSchedule();
 }

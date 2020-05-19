@@ -1,7 +1,7 @@
 package com.draft.agile.chapter.nineteen.transaction;
 
 import com.draft.agile.chapter.nineteen.schedule.Schedule;
-import com.draft.agile.chapter.nineteen.classification.Classification;
+import com.draft.agile.chapter.nineteen.classification.PaymentClassification;
 import com.draft.agile.chapter.nineteen.classification.CommissionClassification;
 import com.draft.agile.chapter.nineteen.schedule.BlweeklySchedule;
 
@@ -25,7 +25,7 @@ public class AddCommissionedEmployee extends AddEmployeeTransaction{
     }
 
     @Override
-    protected Classification getClassification() {
+    protected PaymentClassification getClassification() {
         return new CommissionClassification(salary, commissionRate);
     }
 

@@ -22,8 +22,4 @@ public class DeleteEmployeeTransaction implements Transaction{
     public void execute() {
         PayrollDatabase.deleteEmployee(empId);
     }
-
-    public static void main(String[] args) {
-        System.out.println(String.format("hhe:%s", true));
-    }
 }
