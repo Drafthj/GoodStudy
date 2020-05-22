@@ -3,6 +3,7 @@ package com.draft.agile.chapter.nineteen;
 import com.draft.agile.chapter.nineteen.transaction.Employee;
 
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * 〈一句话功能简述〉
@@ -14,7 +15,18 @@ import java.util.Map;
  * @since [产品/模块版本] （可选）
  */
 public class PayrollDatabase {
-    private static Map<Integer, Employee> itsEmployees;
+    private static Map<Integer, Employee> itsEmployees = new ConcurrentHashMap<>();
+    private static Map<Integer, Employee> itsMembers = new ConcurrentHashMap<>();
+
+    public static void addUnionMember(int memberId, Employee employee){
+        itsMembers.put(memberId, employee);
+    }
+
+    public static Employee getUnionMember(int memberId) {
+        return itsMembers.get(memberId);
+    }
+
+
     public static Employee getEmployee(int empId){
         return itsEmployees.get(empId);
     }

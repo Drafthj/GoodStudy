@@ -1,5 +1,7 @@
 package com.draft.agile.chapter.nineteen.classification;
 
+import com.draft.agile.chapter.nineteen.bean.SalesReceipt;
+
 /**
  * 〈一句话功能简述〉
  * 〈功能详细描述〉
@@ -11,8 +13,16 @@ package com.draft.agile.chapter.nineteen.classification;
  */
 public class SalariedClassification implements PaymentClassification {
     private double salary;
-
+    private SalesReceipt salesReceipt;
     public SalariedClassification(double salary) {
         this.salary = salary;
+    }
+
+    public SalesReceipt getSalesReceipt() {
+        return salesReceipt;
+    }
+
+    public void setSalesReceipt(SalesReceipt salesReceipt) {
+        this.salesReceipt = salesReceipt;
     }
 }

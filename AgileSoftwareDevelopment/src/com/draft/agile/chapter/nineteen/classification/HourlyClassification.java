@@ -1,5 +1,7 @@
 package com.draft.agile.chapter.nineteen.classification;
 
+import com.draft.agile.chapter.nineteen.bean.TimeCard;
+
 /**
  * 〈一句话功能简述〉
  * 〈功能详细描述〉
@@ -11,8 +13,12 @@ package com.draft.agile.chapter.nineteen.classification;
  */
 public class HourlyClassification implements PaymentClassification {
     private double hourlyRate;
-
+    private TimeCard timeCard;
     public HourlyClassification(double hourlyRate) {
         this.hourlyRate = hourlyRate;
+    }
+
+    public void addTimeCard(TimeCard timeCard) {
+        this.timeCard = timeCard;
     }
 }

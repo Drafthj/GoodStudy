@@ -1,5 +1,6 @@
 package com.draft.agile.chapter.nineteen.transaction;
 
+import com.draft.agile.chapter.nineteen.affiliation.Affiliation;
 import com.draft.agile.chapter.nineteen.schedule.Schedule;
 import com.draft.agile.chapter.nineteen.classification.PaymentClassification;
 import com.draft.agile.chapter.nineteen.pay.PaymentMethod;
@@ -21,6 +22,7 @@ public class Employee {
     private Schedule schedule;
     private PaymentClassification classification;
     private PaymentMethod method;
+    private Affiliation affiliation;
 
     public Employee(int empId, String name, String address) {
         this.empId = empId;
@@ -74,5 +76,13 @@ public class Employee {
 
     public void setMethod(PaymentMethod method) {
         this.method = method;
+    }
+
+    public Affiliation getAffiliation() {
+        return affiliation;
+    }
+
+    public void setAffiliation(Affiliation affiliation) {
+        this.affiliation = affiliation;
     }
 }
