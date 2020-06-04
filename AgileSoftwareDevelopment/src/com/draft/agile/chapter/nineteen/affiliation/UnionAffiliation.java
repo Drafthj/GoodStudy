@@ -11,8 +11,15 @@ import com.draft.agile.chapter.nineteen.bean.ServiceCharge;
  * @see [相关类/方法]（可选）
  * @since [产品/模块版本] （可选）
  */
-public class UnionAffiliation {
+public class UnionAffiliation implements  Affiliation{
+    private Integer memberId;
+    private Double dues;
     private ServiceCharge serviceCharge;
+
+    public UnionAffiliation(Integer memberId, Double dues) {
+        this.memberId = memberId;
+        this.dues = dues;
+    }
 
     public ServiceCharge getServiceCharge() {
         return serviceCharge;
