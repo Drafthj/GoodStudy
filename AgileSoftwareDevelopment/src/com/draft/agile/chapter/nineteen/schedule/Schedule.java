@@ -1,5 +1,7 @@
 package com.draft.agile.chapter.nineteen.schedule;
 
+import java.time.LocalDate;
+
 /**
  * 〈一句话功能简述〉
  * 〈功能详细描述〉
@@ -10,4 +12,5 @@ package com.draft.agile.chapter.nineteen.schedule;
  * @since [产品/模块版本] （可选）
  */
 public interface Schedule {
+    boolean isPayDate(LocalDate date);
 }

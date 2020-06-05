@@ -10,4 +10,5 @@ package com.draft.agile.chapter.nineteen.classification;
  * @since [产品/模块版本] （可选）
  */
 public interface PaymentClassification {
+   double calculatePay();
 }

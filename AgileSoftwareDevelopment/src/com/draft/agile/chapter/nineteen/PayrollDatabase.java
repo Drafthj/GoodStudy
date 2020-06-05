@@ -1,7 +1,10 @@
 package com.draft.agile.chapter.nineteen;
 
+import com.draft.agile.chapter.nineteen.bean.PayCheck;
 import com.draft.agile.chapter.nineteen.transaction.Employee;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -17,6 +20,7 @@ import java.util.concurrent.ConcurrentHashMap;
 public class PayrollDatabase {
     private static Map<Integer, Employee> itsEmployees = new ConcurrentHashMap<>();
     private static Map<Integer, Employee> itsMembers = new ConcurrentHashMap<>();
+    private static Map<Integer, PayCheck> itsPayChecks = new ConcurrentHashMap<>();
 
     public static void addUnionMember(int memberId, Employee employee){
         itsMembers.put(memberId, employee);
@@ -41,5 +45,13 @@ public class PayrollDatabase {
 
     public static void deleteEmployee(int empId) {
         itsEmployees.remove(empId);
+    }
+
+    public static List<Integer> getAllEmployeeIds(){
+        return new ArrayList<>(itsEmployees.keySet());
+    }
+
+    public static void addPayCheck(int empId, PayCheck payCheck) {
+        itsPayChecks.put(empId, payCheck);
     }
 }

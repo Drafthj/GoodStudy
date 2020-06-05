@@ -1,9 +1,12 @@
 package com.draft.agile.chapter.nineteen.transaction;
 
 import com.draft.agile.chapter.nineteen.affiliation.Affiliation;
+import com.draft.agile.chapter.nineteen.bean.PayCheck;
 import com.draft.agile.chapter.nineteen.schedule.Schedule;
 import com.draft.agile.chapter.nineteen.classification.PaymentClassification;
 import com.draft.agile.chapter.nineteen.pay.PaymentMethod;
+
+import java.time.LocalDate;
 
 /**
  * 〈一句话功能简述〉
@@ -28,6 +31,19 @@ public class Employee {
         this.empId = empId;
         this.name = name;
         this.address = address;
+    }
+    public boolean isPayDay(LocalDate date) {
+        return schedule.isPayDate(date);
+    }
+
+    public void payDay(PayCheck payCheck) {
+        double grossPay = classification.calculatePay();
+        double deductions = affiliation.calculateDeductions();
+        double netPay = grossPay - deductions;
+        payCheck.setGrossPay(grossPay);
+        payCheck.setDeductions(deductions);
+        payCheck.setNetPay(netPay);
+        method.pay(payCheck);
     }
 
     public int getEmpId() {
@@ -85,4 +101,6 @@ public class Employee {
     public void setAffiliation(Affiliation affiliation) {
         this.affiliation = affiliation;
     }
+
+
 }

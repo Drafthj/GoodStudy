@@ -1,5 +1,8 @@
 package com.draft.agile.chapter.nineteen.schedule;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+
 /**
  * 〈一句话功能简述〉
  * 〈功能详细描述〉
@@ -10,4 +13,8 @@ package com.draft.agile.chapter.nineteen.schedule;
  * @since [产品/模块版本] （可选）
  */
 public class MonthlySchedule implements Schedule {
+    @Override
+    public boolean isPayDate(LocalDate date) {
+        return false;
+    }
 }
