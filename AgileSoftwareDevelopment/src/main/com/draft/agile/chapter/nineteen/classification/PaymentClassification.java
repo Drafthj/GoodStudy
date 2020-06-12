@@ -1,7 +1,7 @@
 package com.draft.agile.chapter.nineteen.classification;
 
 /**
- * 〈一句话功能简述〉
+ * 〈支付方式〉
  * 〈功能详细描述〉
  *
  * @author drafthj

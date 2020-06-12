@@ -28,4 +28,9 @@ public class UnionAffiliation implements  Affiliation{
     public void setServiceCharge(ServiceCharge serviceCharge) {
         this.serviceCharge = serviceCharge;
     }
+
+    @Override
+    public double calculateDeductions() {
+        return dues;
+    }
 }

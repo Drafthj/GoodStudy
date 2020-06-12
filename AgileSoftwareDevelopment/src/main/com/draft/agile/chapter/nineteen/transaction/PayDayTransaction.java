@@ -30,7 +30,7 @@ public class PayDayTransaction implements Transaction{
             if (e.isPayDay(date)) {
                 PayCheck payCheck = new PayCheck();
                 e.payDay(payCheck);
-                PayrollDatabase.addPayCheck(e, payCheck);
+                PayrollDatabase.addPayCheck(empId, payCheck);
             }
         }
     }

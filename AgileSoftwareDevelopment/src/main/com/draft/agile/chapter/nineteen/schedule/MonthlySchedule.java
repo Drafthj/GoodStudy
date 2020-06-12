@@ -15,6 +15,8 @@ import java.time.LocalDateTime;
 public class MonthlySchedule implements Schedule {
     @Override
     public boolean isPayDate(LocalDate date) {
-        return false;
+        int m1 = date.getMonthValue();
+        int m2 = date.plusDays(1).getMonthValue();
+        return m1 != m2;
     }
 }

@@ -1,5 +1,7 @@
 package com.draft.agile.chapter.nineteen.pay;
 
+import com.draft.agile.chapter.nineteen.bean.PayCheck;
+
 /**
  * 〈一句话功能简述〉
  * 〈功能详细描述〉
@@ -16,5 +18,10 @@ public class DirectMethod implements PaymentMethod {
     public DirectMethod(String bank, String account) {
         this.bank = bank;
         this.account = account;
+    }
+
+    @Override
+    public void pay(PayCheck payCheck) {
+
     }
 }

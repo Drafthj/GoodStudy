@@ -25,4 +25,9 @@ public class SalariedClassification implements PaymentClassification {
     public void setSalesReceipt(SalesReceipt salesReceipt) {
         this.salesReceipt = salesReceipt;
     }
+
+    @Override
+    public double calculatePay() {
+        return 0;
+    }
 }
