@@ -2,6 +2,9 @@ package com.draft.agile.chapter.nineteen.classification;
 
 import com.draft.agile.chapter.nineteen.bean.TimeCard;
 
+import java.time.LocalDateTime;
+import java.util.HashMap;
+
 /**
  * 〈一句话功能简述〉
  * 〈功能详细描述〉
@@ -13,13 +16,17 @@ import com.draft.agile.chapter.nineteen.bean.TimeCard;
  */
 public class HourlyClassification implements PaymentClassification {
     private double hourlyRate;
-    private TimeCard timeCard;
+    private HashMap<LocalDateTime, TimeCard> timeCardMap = new HashMap<>();
     public HourlyClassification(double hourlyRate) {
         this.hourlyRate = hourlyRate;
     }
 
     public void addTimeCard(TimeCard timeCard) {
-        this.timeCard = timeCard;
+        timeCardMap.put(timeCard.getDate(), timeCard);
+    }
+
+    public TimeCard getTimeCard(LocalDateTime dateTime) {
+        return timeCardMap.get(dateTime);
     }
 
     @Override

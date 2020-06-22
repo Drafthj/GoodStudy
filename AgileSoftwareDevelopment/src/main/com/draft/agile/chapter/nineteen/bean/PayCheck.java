@@ -1,5 +1,9 @@
 package com.draft.agile.chapter.nineteen.bean;
 
+import java.sql.Date;
+import java.time.LocalDateTime;
+import java.util.HashMap;
+
 /**
  * 〈一句话功能简述〉
  * 〈功能详细描述〉
@@ -10,6 +14,15 @@ package com.draft.agile.chapter.nineteen.bean;
  * @since [产品/模块版本] （可选）
  */
 public class PayCheck {
+    /**
+     * 支付时间
+     */
+    private LocalDateTime payDate;
+
+    /**
+     * 被支付的周期所开始的时间
+     */
+    private LocalDateTime payPeriodStartDate;
     /**
      * 薪资总额
      */
@@ -22,6 +35,13 @@ public class PayCheck {
      * 薪资净额
      */
     private double netPay;
+
+    public PayCheck(LocalDateTime payDate, LocalDateTime payPeriodStartDate) {
+        this.payDate = payDate;
+        this.payPeriodStartDate = payPeriodStartDate;
+    }
+
+    private HashMap<String, String> fields = new HashMap<>();
 
     public double getGrossPay() {
         return grossPay;
@@ -45,5 +65,21 @@ public class PayCheck {
 
     public void setNetPay(double netPay) {
         this.netPay = netPay;
+    }
+
+    public void setField(String fieldName, String value) {
+        fields.put(fieldName, value);
+    }
+
+    public String getField(String fieldName) {
+        return fields.get(fieldName);
+    }
+
+    public LocalDateTime getPayDate() {
+        return payDate;
+    }
+
+    public void setPayDate(LocalDateTime payDate) {
+        this.payDate = payDate;
     }
 }

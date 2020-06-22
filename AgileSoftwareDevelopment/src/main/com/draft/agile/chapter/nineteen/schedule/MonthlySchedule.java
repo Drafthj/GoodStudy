@@ -2,6 +2,7 @@ package com.draft.agile.chapter.nineteen.schedule;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 
 /**
  * 〈一句话功能简述〉
@@ -14,9 +15,14 @@ import java.time.LocalDateTime;
  */
 public class MonthlySchedule implements Schedule {
     @Override
-    public boolean isPayDate(LocalDate date) {
-        int m1 = date.getMonthValue();
-        int m2 = date.plusDays(1).getMonthValue();
+    public boolean isPayDate(LocalDateTime dateTime) {
+        int m1 = dateTime.getMonthValue();
+        int m2 = dateTime.plusDays(1).getMonthValue();
         return m1 != m2;
+    }
+
+    @Override
+    public LocalDateTime getPayPeriodStartDate(LocalDateTime dateTime) {
+        return dateTime.withDayOfMonth(1).with(LocalTime.MIN);
     }
 }

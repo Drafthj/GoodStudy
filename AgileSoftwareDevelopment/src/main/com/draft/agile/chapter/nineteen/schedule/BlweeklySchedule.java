@@ -14,7 +14,12 @@ import java.time.LocalDateTime;
  */
 public class BlweeklySchedule implements Schedule {
     @Override
-    public boolean isPayDate(LocalDate date) {
+    public boolean isPayDate(LocalDateTime dateTime) {
         return false;
+    }
+
+    @Override
+    public LocalDateTime getPayPeriodStartDate(LocalDateTime dateTime) {
+        return null;
     }
 }

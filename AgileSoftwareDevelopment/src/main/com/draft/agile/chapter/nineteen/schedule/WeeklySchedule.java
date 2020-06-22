@@ -1,6 +1,6 @@
 package com.draft.agile.chapter.nineteen.schedule;
 
-import java.time.LocalDate;
+import java.time.DayOfWeek;
 import java.time.LocalDateTime;
 
 /**
@@ -14,7 +14,12 @@ import java.time.LocalDateTime;
  */
 public class WeeklySchedule implements Schedule {
     @Override
-    public boolean isPayDate(LocalDate date) {
-        return false;
+    public boolean isPayDate(LocalDateTime dateTime) {
+        return dateTime.getDayOfWeek().equals(DayOfWeek.FRIDAY);
+    }
+
+    @Override
+    public LocalDateTime getPayPeriodStartDate(LocalDateTime dateTime) {
+        return dateTime.minusDays(6);
     }
 }

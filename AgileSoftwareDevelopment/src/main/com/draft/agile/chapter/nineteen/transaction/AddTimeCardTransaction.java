@@ -5,6 +5,7 @@ import com.draft.agile.chapter.nineteen.classification.HourlyClassification;
 import com.draft.agile.chapter.nineteen.classification.PaymentClassification;
 import com.draft.agile.chapter.nineteen.bean.TimeCard;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 
 /**
@@ -17,11 +18,11 @@ import java.util.Date;
  * @since [产品/模块版本] （可选）
  */
 public class AddTimeCardTransaction implements Transaction{
-    private Date date;
+    private LocalDateTime date;
     private double hours;
     private int empId;
 
-    public AddTimeCardTransaction(Date date, double hours, int empId) {
+    public AddTimeCardTransaction(LocalDateTime date, double hours, int empId) {
         this.date = date;
         this.hours = hours;
         this.empId = empId;

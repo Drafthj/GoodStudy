@@ -1,5 +1,6 @@
 package com.draft.agile.chapter.nineteen.bean;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 
 /**
@@ -12,19 +13,19 @@ import java.util.Date;
  * @since [产品/模块版本] （可选）
  */
 public class TimeCard {
-    private Date date;
+    private LocalDateTime date;
     private double hours;
 
-    public TimeCard(Date date, double hours) {
+    public TimeCard(LocalDateTime date, double hours) {
         this.date = date;
         this.hours = hours;
     }
 
-    public Date getDate() {
+    public LocalDateTime getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(LocalDateTime date) {
         this.date = date;
     }
 

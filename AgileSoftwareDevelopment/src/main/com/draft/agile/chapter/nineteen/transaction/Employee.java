@@ -7,6 +7,7 @@ import com.draft.agile.chapter.nineteen.classification.PaymentClassification;
 import com.draft.agile.chapter.nineteen.pay.PaymentMethod;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 /**
  * 〈一句话功能简述〉
@@ -32,8 +33,8 @@ public class Employee {
         this.name = name;
         this.address = address;
     }
-    public boolean isPayDay(LocalDate date) {
-        return schedule.isPayDate(date);
+    public boolean isPayDay(LocalDateTime dateTime) {
+        return schedule.isPayDate(dateTime);
     }
 
     public void payDay(PayCheck payCheck) {

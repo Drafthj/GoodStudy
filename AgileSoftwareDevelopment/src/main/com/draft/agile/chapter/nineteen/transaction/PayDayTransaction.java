@@ -4,6 +4,7 @@ import com.draft.agile.chapter.nineteen.PayrollDatabase;
 import com.draft.agile.chapter.nineteen.bean.PayCheck;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
 /**
@@ -16,10 +17,10 @@ import java.util.List;
  * @since [产品/模块版本] （可选）
  */
 public class PayDayTransaction implements Transaction{
-    private LocalDate date;
+    private LocalDateTime dateTime;
 
-    public PayDayTransaction(LocalDate date) {
-        this.date = date;
+    public PayDayTransaction(LocalDateTime dateTime) {
+        this.dateTime = dateTime;
     }
 
     @Override
@@ -27,7 +28,7 @@ public class PayDayTransaction implements Transaction{
         List<Integer> employeeIds = PayrollDatabase.getAllEmployeeIds();
         for (Integer empId : employeeIds) {
             Employee e = PayrollDatabase.getEmployee(empId);
-            if (e.isPayDay(date)) {
+            if (e.isPayDay(dateTime)) {
                 PayCheck payCheck = new PayCheck();
                 e.payDay(payCheck);
                 PayrollDatabase.addPayCheck(empId, payCheck);
