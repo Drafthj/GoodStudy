@@ -1,5 +1,6 @@
 package com.draft.agile.chapter.nineteen.bean;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 
 /**
@@ -12,11 +13,19 @@ import java.util.Date;
  * @since [产品/模块版本] （可选）
  */
 public class SalesReceipt {
-    private Date date;
+    private LocalDateTime dateTime;
     private double amount;
 
-    public SalesReceipt(Date date, double amount) {
-        this.date = date;
+    public SalesReceipt(LocalDateTime dateTime, double amount) {
+        this.dateTime = dateTime;
         this.amount = amount;
+    }
+
+    public LocalDateTime getDateTime() {
+        return dateTime;
+    }
+
+    public double getAmount() {
+        return amount;
     }
 }

@@ -29,7 +29,8 @@ public class PayDayTransaction implements Transaction{
         for (Integer empId : employeeIds) {
             Employee e = PayrollDatabase.getEmployee(empId);
             if (e.isPayDay(dateTime)) {
-                PayCheck payCheck = new PayCheck();
+                LocalDateTime periodStartTime = e.getPayPeriodStartDate(dateTime);
+                PayCheck payCheck = new PayCheck(dateTime, periodStartTime);
                 e.payDay(payCheck);
                 PayrollDatabase.addPayCheck(empId, payCheck);
             }

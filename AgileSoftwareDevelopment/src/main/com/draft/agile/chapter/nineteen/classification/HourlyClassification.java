@@ -1,5 +1,6 @@
 package com.draft.agile.chapter.nineteen.classification;
 
+import com.draft.agile.chapter.nineteen.bean.PayCheck;
 import com.draft.agile.chapter.nineteen.bean.TimeCard;
 
 import java.time.LocalDateTime;
@@ -30,7 +31,7 @@ public class HourlyClassification implements PaymentClassification {
     }
 
     @Override
-    public double calculatePay() {
+    public double calculatePay(PayCheck payCheck) {
         return 0;
     }
 }

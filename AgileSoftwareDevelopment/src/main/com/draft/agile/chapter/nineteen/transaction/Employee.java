@@ -38,7 +38,7 @@ public class Employee {
     }
 
     public void payDay(PayCheck payCheck) {
-        double grossPay = classification.calculatePay();
+        double grossPay = classification.calculatePay(payCheck);
         double deductions = affiliation.calculateDeductions();
         double netPay = grossPay - deductions;
         payCheck.setGrossPay(grossPay);
@@ -103,5 +103,8 @@ public class Employee {
         this.affiliation = affiliation;
     }
 
+    public LocalDateTime getPayPeriodStartDate(LocalDateTime dateTime) {
+        return schedule.getPayPeriodStartDate(dateTime);
+    }
 
 }

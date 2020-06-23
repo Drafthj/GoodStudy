@@ -2,9 +2,11 @@ package com.draft.agile.chapter.nineteen.transaction;
 
 import com.draft.agile.chapter.nineteen.PayrollDatabase;
 import com.draft.agile.chapter.nineteen.bean.SalesReceipt;
+import com.draft.agile.chapter.nineteen.classification.CommissionClassification;
 import com.draft.agile.chapter.nineteen.classification.PaymentClassification;
 import com.draft.agile.chapter.nineteen.classification.SalariedClassification;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 
 /**
@@ -18,10 +20,10 @@ import java.util.Date;
  */
 public class AddSalesReceiptTransaction implements Transaction{
     private int empId;
-    private Date date;
+    private LocalDateTime date;
     private Double amount;
 
-    public AddSalesReceiptTransaction(int empId, Date date, Double amount) {
+    public AddSalesReceiptTransaction(int empId, LocalDateTime date, Double amount) {
         this.empId = empId;
         this.date = date;
         this.amount = amount;
@@ -32,9 +34,9 @@ public class AddSalesReceiptTransaction implements Transaction{
         Employee e = PayrollDatabase.getEmployee(empId);
         if (e != null) {
             PaymentClassification classification = e.getClassification();
-            if (classification instanceof SalariedClassification) {
-                SalariedClassification salariedClassification = (SalariedClassification) classification;
-                salariedClassification.setSalesReceipt(new SalesReceipt(date, amount));
+            if (classification instanceof CommissionClassification) {
+                CommissionClassification commissionClassification = (CommissionClassification) classification;
+                commissionClassification.addSalesReceipt(new SalesReceipt(date, amount));
             } else {
                 System.out.println("Tried to add timecard to non-sales employee");
             }

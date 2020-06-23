@@ -1,5 +1,6 @@
 package com.draft.agile.chapter.nineteen.classification;
 
+import com.draft.agile.chapter.nineteen.bean.PayCheck;
 import com.draft.agile.chapter.nineteen.bean.SalesReceipt;
 
 /**
@@ -13,21 +14,11 @@ import com.draft.agile.chapter.nineteen.bean.SalesReceipt;
  */
 public class SalariedClassification implements PaymentClassification {
     private double salary;
-    private SalesReceipt salesReceipt;
     public SalariedClassification(double salary) {
         this.salary = salary;
     }
-
-    public SalesReceipt getSalesReceipt() {
-        return salesReceipt;
-    }
-
-    public void setSalesReceipt(SalesReceipt salesReceipt) {
-        this.salesReceipt = salesReceipt;
-    }
-
     @Override
-    public double calculatePay() {
-        return 0;
+    public double calculatePay(PayCheck payCheck) {
+        return salary;
     }
 }
