@@ -1,5 +1,6 @@
 package com.draft.agile.chapter.nineteen.classification;
 
+import com.draft.agile.chapter.nineteen.DateUtil;
 import com.draft.agile.chapter.nineteen.bean.PayCheck;
 import com.draft.agile.chapter.nineteen.bean.TimeCard;
 
@@ -18,6 +19,7 @@ import java.util.HashMap;
 public class HourlyClassification implements PaymentClassification {
     private double hourlyRate;
     private HashMap<LocalDateTime, TimeCard> timeCardMap = new HashMap<>();
+
     public HourlyClassification(double hourlyRate) {
         this.hourlyRate = hourlyRate;
     }
@@ -32,6 +34,19 @@ public class HourlyClassification implements PaymentClassification {
 
     @Override
     public double calculatePay(PayCheck payCheck) {
-        return 0;
+        double total = 0;
+        for (TimeCard timeCard : timeCardMap.values()) {
+            if (DateUtil.isBetween(timeCard.getDate(), payCheck.getPayPeriodStartDate(), payCheck.getPayPeriodEndDate())) {
+                total += calculatePayForTimeCard(timeCard);
+            }
+        }
+        return total;
+    }
+
+    private double calculatePayForTimeCard(TimeCard timeCard) {
+        double overtimeHours = Math.max(0.0, timeCard.getHours() - 8);
+        double normalHours = timeCard.getHours() - overtimeHours;
+        return hourlyRate * normalHours +
+                hourlyRate * 1.5 * overtimeHours;
     }
 }
