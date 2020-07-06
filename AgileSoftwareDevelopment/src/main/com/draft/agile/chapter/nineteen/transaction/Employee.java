@@ -39,7 +39,7 @@ public class Employee {
 
     public void payDay(PayCheck payCheck) {
         double grossPay = classification.calculatePay(payCheck);
-        double deductions = affiliation.calculateDeductions();
+        double deductions = affiliation.calculateDeductions(payCheck);
         double netPay = grossPay - deductions;
         payCheck.setGrossPay(grossPay);
         payCheck.setDeductions(deductions);

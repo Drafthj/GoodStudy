@@ -1,5 +1,6 @@
 package com.draft.agile.chapter.nineteen.classification;
 
+import com.draft.agile.chapter.nineteen.DateUtil;
 import com.draft.agile.chapter.nineteen.bean.PayCheck;
 import com.draft.agile.chapter.nineteen.bean.SalesReceipt;
 
@@ -36,6 +37,12 @@ public class CommissionClassification implements PaymentClassification {
 
     @Override
     public double calculatePay(PayCheck payCheck) {
-        return 0;
+        double salesAmount = 0;
+        for (SalesReceipt salesReceipt : salesReceiptMap.values()) {
+            if (DateUtil.isBetween(salesReceipt.getDateTime(), payCheck.getPayPeriodStartDate(), payCheck.getPayPeriodEndDate())) {
+                salesAmount += salesReceipt.getAmount();
+            }
+        }
+        return salary + (salesAmount * commissionRate * 0.01);
     }
 }

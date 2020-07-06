@@ -23,6 +23,7 @@ public class PayCheck {
      * 被支付的周期所开始的时间
      */
     private LocalDateTime payPeriodStartDate;
+
     /**
      * 薪资总额
      */
@@ -36,7 +37,7 @@ public class PayCheck {
      */
     private double netPay;
 
-    public PayCheck(LocalDateTime payDate, LocalDateTime payPeriodStartDate) {
+    public PayCheck(LocalDateTime payPeriodStartDate, LocalDateTime payDate) {
         this.payDate = payDate;
         this.payPeriodStartDate = payPeriodStartDate;
     }
@@ -81,5 +82,17 @@ public class PayCheck {
 
     public void setPayDate(LocalDateTime payDate) {
         this.payDate = payDate;
+    }
+
+    public LocalDateTime getPayPeriodStartDate() {
+        return payPeriodStartDate;
+    }
+
+    public void setPayPeriodStartDate(LocalDateTime payPeriodStartDate) {
+        this.payPeriodStartDate = payPeriodStartDate;
+    }
+
+    public LocalDateTime getPayPeriodEndDate() {
+        return payDate;
     }
 }

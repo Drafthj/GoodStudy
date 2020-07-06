@@ -1,5 +1,7 @@
 package com.draft.agile.chapter.nineteen.affiliation;
 
+import com.draft.agile.chapter.nineteen.bean.PayCheck;
+
 /**
  * 〈一句话功能简述〉
  * 〈功能详细描述〉
@@ -11,7 +13,7 @@ package com.draft.agile.chapter.nineteen.affiliation;
  */
 public class NoAffiliation implements Affiliation {
     @Override
-    public double calculateDeductions() {
+    public double calculateDeductions(PayCheck pc) {
         return 0;
     }
 }
